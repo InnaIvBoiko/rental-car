@@ -1,0 +1,31 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 125%;
+    font-family: var(--font-family), sans-serif;
+    color: var(--white);
+    background-color: var(--light-blue);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--dark-blue);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.fullWidth {
+    display: flex;
+    width: 100%;
+}

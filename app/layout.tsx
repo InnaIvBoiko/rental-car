@@ -1,7 +1,7 @@
 import Header from '@/components/Header/Header';
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import type { Metadata } from 'next';
-import { Manrope } from 'next/font/google';
+import { Inter, Manrope } from 'next/font/google';
 import 'modern-normalize';
 import './globals.css';
 import css from './layout.module.css';
@@ -10,6 +10,13 @@ const manrope = Manrope({
     subsets: ['latin'],
     weight: ['400', '700'],
     variable: '--font-manrope',
+    display: 'swap',
+});
+
+const inter = Inter({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-inter',
     display: 'swap',
 });
 
@@ -50,8 +57,8 @@ export default function RootLayout({
     modal: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={manrope.variable}>
+        <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
+            <body>
                 <TanStackProvider>
                     <Header />
                     <div className={css.main}>{children}</div>

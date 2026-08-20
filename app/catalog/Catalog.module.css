@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 16px 80px;
+}
+
+.loaderWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.message {
+    padding: 60px 0;
+    font-size: 18px;
+    color: var(--gray);
+}
+
+.loadMore {
+    margin-top: 40px;
+}

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import ButtonPrimary from '@/components/ButtonPrimary/ButtonPrimary';
 import css from './Home.module.css';
 
 export default function Home() {
@@ -7,9 +7,9 @@ export default function Home() {
             <div className={css.container}>
                 <h1 className={css.title}>Find your perfect rental car</h1>
                 <p className={css.description}>Reliable and budget-friendly rentals for any journey</p>
-                <Link href="/gallery" className={css.button}>
+                <ButtonPrimary href="/catalog" padding="12px 99px" className={css.cta}>
                     View Catalog
-                </Link>
+                </ButtonPrimary>
             </div>
         </main>
     );

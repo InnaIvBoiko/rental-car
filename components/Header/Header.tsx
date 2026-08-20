@@ -16,17 +16,14 @@ export default function Header() {
             <nav aria-label="Main Navigation">
                 <ul className={css.navigation}>
                     <li className={css.navigationItem}>
-                        <Link
-                            href="/"
-                            className={`${css.navigationLink} ${pathname === '/' ? css.active : ''}`}
-                        >
+                        <Link href="/" className={`${css.navigationLink} ${pathname === '/' ? css.active : ''}`}>
                             Home
                         </Link>
                     </li>
                     <li className={css.navigationItem}>
                         <Link
                             href="/catalog"
-                            className={`${css.navigationLink} ${pathname === '/catalog' ? css.active : ''}`}
+                            className={`${css.navigationLink} ${pathname.startsWith('/catalog') ? css.active : ''}`}
                         >
                             Catalog
                         </Link>

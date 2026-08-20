@@ -1,0 +1,88 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 16px;
+    width: 276px;
+    min-height: 464px;
+    background: var(--white);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 244 / 268;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.model {
+    color: var(--light-blue);
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    border-radius: 8px;
+    padding: 8px;
+    width: 244px;
+    min-height: 52px;
+    background-color: var(--bg);
+}
+
+.metaItem {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    color: var(--main);
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.metaItemLine {
+    width: 1px;
+    height: 16px;
+    background-color: var(--gray-light);
+}
+
+.buttonWrapper {
+    margin-top: auto;
+}

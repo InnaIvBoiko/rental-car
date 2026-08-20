@@ -1,0 +1,148 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    margin: 84px auto 60px auto;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    width: 100%;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 133%;
+    color: var(--gray);
+}
+
+.dropDownWrapper {
+    position: relative;
+}
+
+.dropDownInputWrapper {
+    position: relative;
+    display: block;
+}
+
+.dropDownInput {
+    border-radius: 12px;
+    padding: 12px 40px 12px 16px;
+    width: 204px;
+    height: 44px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    border: none;
+    color: var(--main);
+    background-color: var(--white);
+    outline: none;
+    cursor: pointer;
+}
+
+.dropDownIcon {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--gray);
+    pointer-events: none;
+}
+
+.dropDownInput::placeholder {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--main);
+}
+
+.dropDown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 18px;
+    position: absolute;
+    top: 72px;
+    z-index: 1;
+    border: 1px solid var(--white);
+    border-radius: 12px;
+    width: 204px;
+    max-height: 272px;
+    box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+    background: var(--white);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.dropDownItem {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 125%;
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.dropDownInputSelected {
+    color: var(--main);
+}
+
+.mileageControl {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mileageInput {
+    width: 160px;
+    height: 100%;
+    padding: 12 24px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 125%;
+    color: var(--main);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.mileageInput::placeholder {
+    color: var(--main);
+    font-weight: 500;
+}
+
+.mileageDivider {
+    width: 1px;
+    height: 44px;
+    background-color: var(--gray-light);
+}
+
+.clearButton {
+    width: 156px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: var(--gray);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.clearButton:hover {
+    color: var(--light-blue);
+}

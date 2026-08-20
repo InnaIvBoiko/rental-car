@@ -13,8 +13,8 @@
     --error: #ec383b;
     --error-light: #ffdfdf;
 
-    --font-family: 'Manrope', sans-serif;
-    --second-family: 'Inter', sans-serif;
+    --font-family: var(--font-manrope), sans-serif;
+    --second-family: var(--font-inter), sans-serif;
 }
 
 body {
@@ -35,4 +35,15 @@ h6,
 p {
     font-family: var(--second-family), sans-serif;
     margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
