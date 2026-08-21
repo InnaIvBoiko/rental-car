@@ -10,50 +10,31 @@ interface CommonProps {
 }
 
 interface ButtonAsButton
-    extends CommonProps,
-        Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'style' | 'children'> {
+    extends CommonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'style' | 'children'> {
     href?: undefined;
 }
 
 interface ButtonAsLink
-    extends CommonProps,
-        Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'className' | 'style' | 'children'> {
+    extends CommonProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'className' | 'style' | 'children'> {
     href: string;
 }
 
 type ButtonPrimaryProps = ButtonAsButton | ButtonAsLink;
 
-export default function ButtonPrimary({
-    children,
-    padding,
-    fullWidth,
-    className,
-    href,
-    ...rest
-}: ButtonPrimaryProps) {
+export default function ButtonPrimary({ children, padding, fullWidth, className, href, ...rest }: ButtonPrimaryProps) {
     const classes = `${css.button} ${fullWidth ? css.fullWidth : ''} ${className ?? ''}`.trim();
     const style = padding ? { padding } : undefined;
 
     if (href !== undefined) {
         return (
-            <Link
-                href={href}
-                className={classes}
-                style={style}
-                {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
-            >
+            <Link href={href} className={classes} style={style} {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}>
                 {children}
             </Link>
         );
     }
 
     return (
-        <button
-            type="button"
-            className={classes}
-            style={style}
-            {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
-        >
+        <button type="button" className={classes} style={style} {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}>
             {children}
         </button>
     );

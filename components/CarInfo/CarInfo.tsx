@@ -21,9 +21,9 @@ export default function CarInfo({ car }: CarInfoProps) {
         <div className={css.info}>
             <div>
                 <div className={css.titleRow}>
-                    <h2 className={css.title}>
+                    <h1 className={css.title}>
                         {car.brand} {car.model}, {car.year}
-                    </h2>
+                    </h1>
                     <span className={css.article}>{`Article: ${car.stockNumber}`}</span>
                 </div>
 
@@ -37,7 +37,7 @@ export default function CarInfo({ car }: CarInfoProps) {
                 <p className={css.description}>{car.description}</p>
             </div>
             <div>
-                <h3 className={css.sectionTitle}>Rental Conditions:</h3>
+                <h2 className={css.sectionTitle}>Rental Conditions:</h2>
                 <ul className={css.list}>
                     {car.rentalConditions.map(condition => (
                         <li key={condition} className={css.listItem}>
@@ -49,7 +49,7 @@ export default function CarInfo({ car }: CarInfoProps) {
 
                 <hr className={css.divider} />
 
-                <h3 className={css.sectionTitle}>Car Specifications:</h3>
+                <h2 className={css.sectionTitle}>Car Specifications:</h2>
                 <ul className={css.list}>
                     <li className={css.listItem}>
                         <IoCalendarOutline className={css.icon} aria-hidden="true" />
@@ -75,7 +75,7 @@ export default function CarInfo({ car }: CarInfoProps) {
 
                 <hr className={css.divider} />
 
-                <h3 className={css.sectionTitle}>Features:</h3>
+                <h2 className={css.sectionTitle}>Features:</h2>
                 <ul className={css.list}>
                     {car.features.map(feature => (
                         <li key={feature} className={css.listItem}>

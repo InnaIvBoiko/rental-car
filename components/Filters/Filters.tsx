@@ -164,6 +164,7 @@ export default function Filters({ filters, onApply }: FiltersProps) {
                             type="text"
                             inputMode="numeric"
                             placeholder="From"
+                            aria-label="Mileage from, km"
                             value={mileageFrom}
                             onChange={handleMileageChange(setMileageFrom)}
                         />
@@ -173,6 +174,7 @@ export default function Filters({ filters, onApply }: FiltersProps) {
                             type="text"
                             inputMode="numeric"
                             placeholder="To"
+                            aria-label="Mileage to, km"
                             value={mileageTo}
                             onChange={handleMileageChange(setMileageTo)}
                         />
@@ -184,7 +186,7 @@ export default function Filters({ filters, onApply }: FiltersProps) {
                 </ButtonPrimary>
             </form>
 
-            <button className={css.clearButton} onClick={handleClear}>
+            <button type="button" className={css.clearButton} onClick={handleClear}>
                 Clear filters
             </button>
         </div>

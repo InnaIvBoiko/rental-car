@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RentalCar
 
-## Getting Started
+A frontend web application for a car rental company. Users can browse a catalog of available cars, filter and paginate
+through them, and submit a booking request for a specific car.
 
-First, run the development server:
+**Live demo:** https://rental-car-jade-rho.vercel.app/
+
+## Features
+
+- **Home page** — a hero section with a call to action leading into the catalog.
+- **Catalog page** (`/catalog`) — cars fetched from the backend, with server-side filtering by brand (single choice),
+  price (single choice), and mileage (from/to), plus "Load More" pagination via TanStack Query's `useInfiniteQuery` that
+  respects the active filters.
+- **Car details page** (`/catalog/[carId]`) — full information about a car (photo, price, description, rental
+  conditions, specifications, features) and a booking form that submits directly to the backend, with success/error
+  toast notifications and client-side validation.
+- Loading and error states throughout (spinners, empty-state illustration, 404 handling).
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript
+- [TanStack Query](https://tanstack.com/query) for data fetching, caching, and infinite pagination
+- CSS Modules for styling
+- [react-icons](https://react-icons.github.io/react-icons/) for icons
+- [react-hot-toast](https://react-hot-toast.com/) for notifications
+- [Axios](https://axios-http.com/) for HTTP requests to the
+  [Rental Car API](https://car-rental-api.goit.study/api-docs/)
+
+## Getting started
+
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/InnaIvBoiko/rental-car.git
+cd rental-car
+npm install
+```
+
+### Running locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Other scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run start   # run the production build locally
+npm run lint    # run ESLint
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                 # routes (App Router): /, /catalog, /catalog/[id]
+components/           # reusable UI components (CarCard, Filters, BookingForm, ...)
+lib/api.ts            # backend API client
+types/                # shared TypeScript types
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Inna Boiko** — [GitHub](https://github.com/InnaIvBoiko)

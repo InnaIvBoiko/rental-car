@@ -77,12 +77,9 @@ export interface BookingRequestResponse {
 
 export const createBookingRequest = async (
     carId: string,
-    payload: BookingRequestPayload,
+    payload: BookingRequestPayload
 ): Promise<BookingRequestResponse> => {
-    const response: AxiosResponse<BookingRequestResponse> = await api.post(
-        `/cars/${carId}/booking-requests`,
-        payload,
-    );
+    const response: AxiosResponse<BookingRequestResponse> = await api.post(`/cars/${carId}/booking-requests`, payload);
 
     return response.data;
 };

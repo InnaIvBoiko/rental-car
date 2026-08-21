@@ -54,6 +54,7 @@ export default function CatalogClient() {
 
     return (
         <div className={css.container}>
+            <h1 className="sr-only">Car Catalog</h1>
             <Filters filters={filtersData} onApply={setAppliedFilters} />
             <div className={css.carListWrapper}>
                 {(isLoading || isFetchingNextPage) && (

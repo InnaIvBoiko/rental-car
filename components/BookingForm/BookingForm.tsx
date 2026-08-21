@@ -54,14 +54,14 @@ export default function BookingForm({ carId }: BookingFormProps) {
 
     const bookingMutation = useMutation({
         mutationFn: (payload: BookingRequestPayload) => createBookingRequest(carId, payload),
-        onSuccess: (data) => {
+        onSuccess: data => {
             toast.success(data.message);
             setName('');
             setEmail('');
             setComment('');
             setErrors({});
         },
-        onError: (mutationError) => {
+        onError: mutationError => {
             const message = axios.isAxiosError(mutationError)
                 ? (mutationError.response?.data?.message ?? 'Could not send your booking request.')
                 : 'Could not send your booking request.';
@@ -84,7 +84,7 @@ export default function BookingForm({ carId }: BookingFormProps) {
 
     const handleFieldChange = (field: keyof FormErrors, value: string, setter: (value: string) => void) => {
         setter(value);
-        setErrors((previous) => (previous[field] ? { ...previous, [field]: undefined } : previous));
+        setErrors(previous => (previous[field] ? { ...previous, [field]: undefined } : previous));
     };
 
     return (
@@ -94,47 +94,77 @@ export default function BookingForm({ carId }: BookingFormProps) {
 
             <form className={css.form} onSubmit={handleSubmit} noValidate>
                 <div className={css.field}>
+                    <label className="sr-only" htmlFor="booking-name">
+                        Name
+                    </label>
                     <div className={css.controlWrapper}>
                         {errors.name && <span className={css.floatingLabel}>Name*</span>}
                         <input
+                            id="booking-name"
                             className={`${css.input} ${errors.name ? css.inputError : ''}`}
                             type="text"
                             placeholder="Name*"
                             value={name}
-                            onChange={(event) => handleFieldChange('name', event.target.value, setName)}
+                            onChange={event => handleFieldChange('name', event.target.value, setName)}
+                            aria-invalid={Boolean(errors.name)}
+                            aria-describedby={errors.name ? 'booking-name-error' : undefined}
                         />
                         {errors.name && <IoAlertCircleOutline className={css.errorIcon} aria-hidden="true" />}
                     </div>
-                    {errors.name && <p className={css.errorText}>{errors.name}</p>}
+                    {errors.name && (
+                        <p id="booking-name-error" className={css.errorText}>
+                            {errors.name}
+                        </p>
+                    )}
                 </div>
 
                 <div className={css.field}>
+                    <label className="sr-only" htmlFor="booking-email">
+                        Email
+                    </label>
                     <div className={css.controlWrapper}>
                         {errors.email && <span className={css.floatingLabel}>Email*</span>}
                         <input
+                            id="booking-email"
                             className={`${css.input} ${errors.email ? css.inputError : ''}`}
                             type="email"
                             placeholder="Email*"
                             value={email}
-                            onChange={(event) => handleFieldChange('email', event.target.value, setEmail)}
+                            onChange={event => handleFieldChange('email', event.target.value, setEmail)}
+                            aria-invalid={Boolean(errors.email)}
+                            aria-describedby={errors.email ? 'booking-email-error' : undefined}
                         />
                         {errors.email && <IoAlertCircleOutline className={css.errorIcon} aria-hidden="true" />}
                     </div>
-                    {errors.email && <p className={css.errorText}>{errors.email}</p>}
+                    {errors.email && (
+                        <p id="booking-email-error" className={css.errorText}>
+                            {errors.email}
+                        </p>
+                    )}
                 </div>
 
                 <div className={css.field}>
+                    <label className="sr-only" htmlFor="booking-comment">
+                        Comment
+                    </label>
                     <div className={css.controlWrapper}>
                         <textarea
+                            id="booking-comment"
                             className={`${css.textarea} ${errors.comment ? css.inputError : ''}`}
                             placeholder="Comment"
                             rows={4}
                             value={comment}
-                            onChange={(event) => handleFieldChange('comment', event.target.value, setComment)}
+                            onChange={event => handleFieldChange('comment', event.target.value, setComment)}
+                            aria-invalid={Boolean(errors.comment)}
+                            aria-describedby={errors.comment ? 'booking-comment-error' : undefined}
                         />
                         {errors.comment && <IoAlertCircleOutline className={css.errorIcon} aria-hidden="true" />}
                     </div>
-                    {errors.comment && <p className={css.errorText}>{errors.comment}</p>}
+                    {errors.comment && (
+                        <p id="booking-comment-error" className={css.errorText}>
+                            {errors.comment}
+                        </p>
+                    )}
                 </div>
 
                 <ButtonPrimary type="submit" fullWidth disabled={bookingMutation.isPending}>

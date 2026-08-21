@@ -11,12 +11,9 @@ export async function generateMetadata({ params }: CarDetailsPageProps): Promise
 
     try {
         const car = await fetchCarById(id);
-        const description = car.brand
-            ? car.brand.length > 150
-                ? `${car.brand.slice(0, 150)}…`
-                : car.brand
-            : `Details for the car "${car.brand}" on RentalCar.`;
+        const description = car.description.length > 150 ? `${car.description.slice(0, 150)}…` : car.description;
         const title = `${car.brand} — ${car.model}`;
+        const alt = `${car.brand} ${car.model}`;
 
         return {
             title,
@@ -24,15 +21,13 @@ export async function generateMetadata({ params }: CarDetailsPageProps): Promise
             openGraph: {
                 title,
                 description,
-                url: `/cars/${id}`,
+                url: `/catalog/${id}`,
                 siteName: 'RentalCar',
                 type: 'article',
                 images: [
                     {
-                        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
-                        width: 1200,
-                        height: 630,
-                        alt: car.brand,
+                        url: car.img,
+                        alt,
                     },
                 ],
             },
@@ -40,7 +35,7 @@ export async function generateMetadata({ params }: CarDetailsPageProps): Promise
                 card: 'summary_large_image',
                 title,
                 description,
-                images: ['https://ac.goit.global/fullstack/react/notehub-og-meta.jpg'],
+                images: [car.img],
             },
         };
     } catch {
