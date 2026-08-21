@@ -1,7 +1,12 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import Image from 'next/image';
+import { notFound, useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import BookingForm from '@/components/BookingForm/BookingForm';
+import CarInfo from '@/components/CarInfo/CarInfo';
+import Loader from '@/components/Loader/Loader';
 import { fetchCarById } from '@/lib/api';
 import css from './CarDetails.module.css';
 
@@ -20,22 +25,39 @@ export default function CarDetailsClient() {
     });
 
     if (isLoading) {
-        return <p>Loading, please wait...</p>;
+        return (
+            <div className={css.loaderWrapper}>
+                <Loader isLoadingDescription={false} />
+            </div>
+        );
+    }
+
+    if (axios.isAxiosError(error) && error.response?.status === 404) {
+        notFound();
     }
 
     if (error || !car) {
-        return <p>Something went wrong.</p>;
+        return <p className={css.message}>Something went wrong.</p>;
     }
 
     return (
-        <div className={css.container}>
-            <div className={css.item}>
-                <div className={css.header}>
-                    <h2>{car?.brand}</h2>
+        <div className={css.layout}>
+            <div className={css.left}>
+                <div className={css.imageWrapper}>
+                    <Image
+                        className={css.image}
+                        src={car.img}
+                        alt={`${car.brand} ${car.model}`}
+                        width={640}
+                        height={512}
+                        priority
+                    />
                 </div>
-                <p className={css.tag}>{car?.model}</p>
-                <p className={css.content}>{car?.description}</p>
+
+                <BookingForm carId={id} />
             </div>
+
+            <CarInfo car={car} />
         </div>
     );
 }

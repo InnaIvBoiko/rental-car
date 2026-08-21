@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useState, type ChangeEvent, type SubmitEvent } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import ButtonPrimary from '@/components/ButtonPrimary/ButtonPrimary';
 import type { CarsFilters } from '@/lib/api';
@@ -49,7 +49,7 @@ export default function Filters({ filters, onApply }: FiltersProps) {
 
     const priceOptions = buildPriceOptions(filters?.price);
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         onApply({

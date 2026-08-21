@@ -2,6 +2,7 @@ import Header from '@/components/Header/Header';
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 import 'modern-normalize';
 import './globals.css';
 import css from './layout.module.css';
@@ -64,6 +65,7 @@ export default function RootLayout({
                     <div className={css.main}>{children}</div>
                     {modal}
                 </TanStackProvider>
+                <Toaster position="top-right" />
             </body>
         </html>
     );

@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import axios from 'axios';
-import { notFound } from 'next/navigation';
-import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 import { fetchCarById } from '@/lib/api';
 import CarDetailsClient from './CarDetails.client';
 
@@ -54,25 +51,6 @@ export async function generateMetadata({ params }: CarDetailsPageProps): Promise
     }
 }
 
-export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
-    const { id } = await params;
-    const queryClient = new QueryClient();
-
-    try {
-        await queryClient.fetchQuery({
-            queryKey: ['car', id],
-            queryFn: () => fetchCarById(id),
-        });
-    } catch (error) {
-        if (axios.isAxiosError(error) && error.response?.status === 404) {
-            notFound();
-        }
-        throw error;
-    }
-
-    return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
-            <CarDetailsClient />
-        </HydrationBoundary>
-    );
+export default function CarDetailsPage() {
+    return <CarDetailsClient />;
 }

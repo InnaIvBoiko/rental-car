@@ -14,8 +14,9 @@ export interface Car {
     type: string;
     img: string;
     description: string;
-    fuelConsumption: string;
+    fuelConsumption: number;
     engine: string;
+    stockNumber: number;
     features: Features[];
     rentalPrice: string;
     rentalCompany: string;

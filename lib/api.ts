@@ -68,3 +68,25 @@ export const fetchCarById = async (id: string): Promise<Car> => {
 
     return response.data;
 };
+
+export interface BookingRequestPayload {
+    name: string;
+    email: string;
+    comment?: string;
+}
+
+export interface BookingRequestResponse {
+    message: string;
+}
+
+export const createBookingRequest = async (
+    carId: string,
+    payload: BookingRequestPayload,
+): Promise<BookingRequestResponse> => {
+    const response: AxiosResponse<BookingRequestResponse> = await api.post(
+        `/cars/${carId}/booking-requests`,
+        payload,
+    );
+
+    return response.data;
+};

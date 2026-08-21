@@ -38,6 +38,7 @@
 }
 
 .title {
+    font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     line-height: 125%;
@@ -49,6 +50,7 @@
 }
 
 .price {
+    font-family: var(--font-family);
     font-size: 16px;
     font-weight: 500;
     line-height: 125%;
@@ -68,6 +70,7 @@
 }
 
 .metaItem {
+    font-family: var(--font-family);
     font-weight: 400;
     font-size: 12px;
     line-height: 133%;
