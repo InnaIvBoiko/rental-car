@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 120px 16px;
+}
+
+.code {
+    font-family: var(--font-family), sans-serif;
+    font-size: 46px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 8px;
+}
+
+.title {
+    font-family: var(--font-family), sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--main);
+    margin-bottom: 16px;
+}
+
+.message {
+    font-family: var(--font-family), sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--gray);
+    margin-bottom: 32px;
+}
