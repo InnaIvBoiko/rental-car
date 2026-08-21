@@ -18,8 +18,8 @@ interface FiltersProps {
     onApply: (filters: AppliedFilters) => void;
 }
 
-const PRICE_STEP = 10;
-const PRICE_MAX = 200;
+const PRICE_STEP: number = 10;
+const PRICE_MAX: number = 200;
 
 const buildPriceOptions = (price?: CarsFilters['price']): number[] => {
     if (!price) {

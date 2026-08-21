@@ -21,7 +21,7 @@ const inter = Inter({
     display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rental-car.vercel.app';
+const siteUrl: string = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://rental-car.vercel.app';
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
@@ -33,29 +33,18 @@ export const metadata: Metadata = {
         url: '/',
         siteName: 'RentalCar',
         type: 'website',
-        images: [
-            {
-                url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'RentalCar',
-            },
-        ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: '',
-        description: 'RentaalCar is a simple and efficient application for managing rental cars.',
-        images: ['https://ac.goit.global/fullstack/react/notehub-og-meta.jpg'],
+        title: 'RentalCar',
+        description: 'RentalCar is a simple and efficient application for managing rental cars.',
     },
 };
 
 export default function RootLayout({
     children,
-    modal,
 }: Readonly<{
     children: React.ReactNode;
-    modal: React.ReactNode;
 }>) {
     return (
         <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
@@ -63,7 +52,6 @@ export default function RootLayout({
                 <TanStackProvider>
                     <Header />
                     <div className={css.main}>{children}</div>
-                    {modal}
                 </TanStackProvider>
                 <Toaster position="top-right" />
             </body>

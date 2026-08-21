@@ -1,14 +1,10 @@
 import axios, { type AxiosResponse } from 'axios';
 import { Car } from '@/types/car';
 
-const BASE_URL = 'https://car-rental-api.goit.study/';
-const token = process.env.NEXT_PUBLIC_CAR_RENTAL_TOKEN;
+const BASE_URL: string = 'https://car-rental-api.goit.study/';
 
 const api = axios.create({
     baseURL: BASE_URL,
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
 });
 
 export interface FetchCarsParams {

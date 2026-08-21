@@ -25,8 +25,8 @@ interface FormErrors {
     comment?: string;
 }
 
-const NAME_PATTERN = /^[\p{L}][\p{L}\s'-]{1,}$/u;
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NAME_PATTERN: RegExp = /^[\p{L}][\p{L}\s'-]{1,}$/u;
+const EMAIL_PATTERN: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const validate = (values: FormValues): FormErrors => {
     const errors: FormErrors = {};
@@ -47,9 +47,9 @@ const validate = (values: FormValues): FormErrors => {
 };
 
 export default function BookingForm({ carId }: BookingFormProps) {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [comment, setComment] = useState('');
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [comment, setComment] = useState<string>('');
     const [errors, setErrors] = useState<FormErrors>({});
 
     const bookingMutation = useMutation({

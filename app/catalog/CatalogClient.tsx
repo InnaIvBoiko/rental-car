@@ -10,7 +10,7 @@ import Loader from '@/components/Loader/Loader';
 import { fetchCars, fetchCarsFilters } from '@/lib/api';
 import css from './Catalog.module.css';
 
-export const CATALOG_PER_PAGE = 8;
+export const CATALOG_PER_PAGE: number = 8;
 
 export default function CatalogClient() {
     const [appliedFilters, setAppliedFilters] = useState<AppliedFilters>({});
