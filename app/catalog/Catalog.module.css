@@ -8,10 +8,19 @@
     padding: 40px 16px 80px;
 }
 
+.carListWrapper {
+    position: relative;
+    width: 100%;
+}
+
 .loaderWrapper {
+    position: fixed;
+    inset: 0;
     display: flex;
     justify-content: center;
-    padding: 60px 0;
+    align-items: center;
+    background: rgba(245, 245, 245, 0.89);
+    z-index: 1;
 }
 
 .message {

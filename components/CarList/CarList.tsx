@@ -9,8 +9,8 @@ interface CarListProps {
 export default function CarList({ cars }: CarListProps) {
     return (
         <ul className={css.list}>
-            {cars.map((car) => (
-                <CarCard key={car.id} car={car} />
+            {cars.map((car, index) => (
+                <CarCard key={car.id} car={car} priority={index < 4} />
             ))}
         </ul>
     );

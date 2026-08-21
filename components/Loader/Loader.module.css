@@ -1,0 +1,47 @@
+.spinnerCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    padding: 48px 96px;
+    width: 543px;
+    height: 288px;
+    background: var(--white);
+}
+
+.loadingText {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 133%;
+    text-align: center;
+    color: var(--main);
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.loadingDescription {
+    width: 260px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    text-align: center;
+    color: var(--main);
+}
+
+.loader {
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+    border: 6px solid #dee2e6;
+    border-top-color: var(--light-blue);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -5,15 +5,23 @@ import css from './CarCard.module.css';
 
 interface CarCardProps {
     car: Car;
+    priority?: boolean;
 }
 
 const formatMileage = (mileage: number): string => mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
-export default function CarCard({ car }: CarCardProps) {
+export default function CarCard({ car, priority }: CarCardProps) {
     return (
-        <li className={css.card}>
+        <li id={`car-${car.id}`} className={css.card}>
             <div className={css.imageWrapper}>
-                <Image className={css.image} src={car.img} alt={`${car.brand} ${car.model}`} width={244} height={268} />
+                <Image
+                    className={css.image}
+                    src={car.img}
+                    alt={`${car.brand} ${car.model}`}
+                    width={244}
+                    height={268}
+                    priority={priority}
+                />
             </div>
 
             <div className={css.info}>
