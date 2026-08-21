@@ -3,7 +3,7 @@
     flex-direction: column;
     border-radius: 16px;
     padding: 16px;
-    width: 276px;
+    width: 100%;
     min-height: 464px;
     background: var(--white);
 }
@@ -64,7 +64,7 @@
     gap: 6px;
     border-radius: 8px;
     padding: 8px;
-    width: 244px;
+    width: 100%;
     min-height: 52px;
     background-color: var(--bg);
 }

@@ -1,6 +1,6 @@
 .main {
-    width: 1440px;
-    height: 700px;
+    width: 100%;
+    min-height: clamp(420px, 70vw, 700px);
     margin: 0px auto;
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/hero.jpg');
     background-size: cover;
@@ -19,7 +19,7 @@
 }
 
 .title {
-    font-size: 60px;
+    font-size: clamp(28px, 8vw, 60px);
     font-weight: 700;
     line-height: 120%;
     text-align: center;
@@ -28,7 +28,7 @@
 }
 
 .description {
-    font-size: 24px;
+    font-size: clamp(16px, 4vw, 24px);
     font-weight: 600;
     line-height: 133%;
     text-align: center;

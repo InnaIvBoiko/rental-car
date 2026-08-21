@@ -3,10 +3,17 @@
     flex-direction: column;
     align-items: center;
     border-radius: 16px;
-    padding: 48px 96px;
-    width: 543px;
-    height: 288px;
+    padding: 32px 24px;
+    width: min(543px, calc(100vw - 32px));
     background: var(--white);
+}
+
+@media (min-width: 768px) {
+    .spinnerCard {
+        padding: 48px 96px;
+        height: 288px;
+        justify-content: center;
+    }
 }
 
 .loadingText {
@@ -21,7 +28,8 @@
 }
 
 .loadingDescription {
-    width: 260px;
+    width: 100%;
+    max-width: 260px;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;

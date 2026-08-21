@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 import Filters, { type AppliedFilters } from '@/components/Filters/Filters';
 import CarList from '@/components/CarList/CarList';
 import ButtonSecondary from '@/components/ButtonSecondary/ButtonSecondary';
@@ -16,11 +17,17 @@ export default function CatalogClient() {
     const [appliedFilters, setAppliedFilters] = useState<AppliedFilters>({});
     const pendingScrollIndexRef = useRef<number | null>(null);
 
-    const { data: filtersData } = useQuery({
+    const { data: filtersData, isError: isFiltersError } = useQuery({
         queryKey: ['carsFilters'],
         queryFn: fetchCarsFilters,
         staleTime: Infinity,
     });
+
+    useEffect(() => {
+        if (isFiltersError) {
+            toast.error('Could not load filter options. You can still browse all cars.');
+        }
+    }, [isFiltersError]);
 
     const { data, isLoading, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
         queryKey: ['cars', appliedFilters],

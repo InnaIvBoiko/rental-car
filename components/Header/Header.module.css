@@ -1,9 +1,23 @@
 .header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 120px;
+    gap: 16px;
+    padding: 16px 20px;
     background-color: var(--white);
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: 24px 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+        padding: 24px 120px;
+    }
 }
 
 .headerLink {

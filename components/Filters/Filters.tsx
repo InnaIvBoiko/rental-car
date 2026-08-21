@@ -181,14 +181,16 @@ export default function Filters({ filters, onApply }: FiltersProps) {
                     </div>
                 </div>
 
-                <ButtonPrimary type="submit" padding="12px 51px">
-                    Search
-                </ButtonPrimary>
-            </form>
+                <div className={css.searchGroup}>
+                    <ButtonPrimary type="submit" padding="12px 51px" className={css.searchButton}>
+                        Search
+                    </ButtonPrimary>
 
-            <button type="button" className={css.clearButton} onClick={handleClear}>
-                Clear filters
-            </button>
+                    <button type="button" className={css.clearButton} onClick={handleClear}>
+                        Clear filters
+                    </button>
+                </div>
+            </form>
         </div>
     );
 }

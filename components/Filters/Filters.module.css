@@ -1,17 +1,35 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 8px;
-    margin: 84px auto 60px auto;
+    margin: 40px auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        align-items: center;
+        margin: 84px auto 60px auto;
+    }
 }
 
 .form {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: stretch;
     gap: 16px;
     width: 100%;
+}
+
+@media (min-width: 768px) {
+    .form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-end;
+        width: auto;
+    }
 }
 
 .field {
@@ -40,7 +58,7 @@
 .dropDownInput {
     border-radius: 12px;
     padding: 12px 40px 12px 16px;
-    width: 204px;
+    width: 100%;
     height: 44px;
     font-family: var(--font-family);
     font-weight: 500;
@@ -51,6 +69,12 @@
     background-color: var(--white);
     outline: none;
     cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .dropDownInput {
+        width: 204px;
+    }
 }
 
 .dropDownIcon {
@@ -82,12 +106,18 @@
     z-index: 1;
     border: 1px solid var(--white);
     border-radius: 12px;
-    width: 204px;
+    width: 100%;
     max-height: 272px;
     box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
     background: var(--white);
     overflow: hidden;
     overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+    .dropDown {
+        width: 204px;
+    }
 }
 
 .dropDownItem {
@@ -113,7 +143,9 @@
 }
 
 .mileageInput {
-    width: 160px;
+    flex: 1;
+    min-width: 0;
+    width: 0;
     height: 100%;
     padding: 12 24px;
     font-family: var(--font-family);
@@ -124,6 +156,13 @@
     background-color: transparent;
     border: none;
     outline: none;
+}
+
+@media (min-width: 768px) {
+    .mileageInput {
+        flex: none;
+        width: 160px;
+    }
 }
 
 .mileageInput::placeholder {
@@ -137,8 +176,33 @@
     background-color: var(--gray-light);
 }
 
+.searchGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .searchGroup {
+        position: relative;
+        width: auto;
+    }
+}
+
+.searchButton {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .searchButton {
+        width: auto;
+    }
+}
+
 .clearButton {
-    width: 156px;
+    width: 100%;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
@@ -147,6 +211,17 @@
     background: none;
     border: none;
     cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .clearButton {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 8px;
+        width: max-content;
+    }
 }
 
 .clearButton:hover {

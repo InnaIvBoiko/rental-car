@@ -1,5 +1,7 @@
 # RentalCar
 
+![RentalCar](public/mockup.jpeg)
+
 A frontend web application for a car rental company. Users can browse a catalog of available cars, filter and paginate
 through them, and submit a booking request for a specific car.
 
@@ -15,6 +17,7 @@ through them, and submit a booking request for a specific car.
   conditions, specifications, features) and a booking form that submits directly to the backend, with success/error
   toast notifications and client-side validation.
 - Loading and error states throughout (spinners, empty-state illustration, 404 handling).
+- Responsive layout, from a 320px mobile viewport up through desktop.
 
 ## Tech stack
 
